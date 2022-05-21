@@ -6,9 +6,59 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quizapp</title>
+    <script src="main.js"></script>
+    <script src="questionData.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fonts.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
 
-<body>
+<body onload="quizRender()">
+    <div class="mainContent">
+        <div class="header">
+            <h1>Das League of Legends Quiz</h1>
+        </div>
+        <div class="card">
+            <img src="img/background.jpg " class="card-img-top " alt="... ">
+            <div class="card-body " id="quizContent">
+                <div class="cardHeader">
+                    <div>
+                        <h5 class="card-title ">Frage <b id="questionsCount"></b>:
+                        </h5>
+                        <p id="questionText"></p>
+                    </div>
+                    <div class="difficultyColor easy" id="difficultyColor"></div>
+                </div>
+                <div class="anwserContainer" id="anwserContainer">
+                    <div class="card questionCard">
+                        <div class="card-body " id="anwser1" onclick="checkCorrectAnwser(1)">
+                        </div>
+                    </div>
+                    <div class="card questionCard">
+                        <div class="card-body " id="anwser2" onclick="checkCorrectAnwser(2)">
+                        </div>
+                    </div>
+                    <div class="card questionCard">
+                        <div class="card-body " id="anwser3" onclick="checkCorrectAnwser(3)">
+                        </div>
+                    </div>
+                    <div class="card questionCard">
+                        <div class="card-body " id="anwser4" onclick="checkCorrectAnwser(4)">
+                        </div>
+                    </div>
+                </div>
+                <div class="questionFooter">
+                    <span>
+                        <b id="currentQuestion">1</b> von <b id="maxQuestions"></b> Fragen!
+                    </span>
+                    <span id="result">
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 
