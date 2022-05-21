@@ -11,29 +11,44 @@
 
 body {
     overflow-x: hidden;
-    overflow-y: hidden;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .mainContent {
     background-color: var(--bgmain);
-    max-height: 100%;
+    max-height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+.quizimg {
+    height: 450px;
+    width: 900px;
+}
+
 .header {
+    position: absolute;
+    top: 0;
     font-family: 'Odibee Sans' !important;
     background-color: var(--bgheader);
     width: 100vw;
     text-align: center;
     border: 1px solid rgba(0, 0, 0, 0.2);
-    max-height: 50px;
+    max-height: 40px;
 }
 
 .card-body {
     padding: 12px;
+    border: 1px solid grey;
+    border-radius: 5px;
 }
 
 .questionCard {
@@ -74,6 +89,8 @@ body {
 }
 
 .difficultyColor {
+    min-height: 20px;
+    min-width: 20px;
     height: 20px;
     width: 20px;
     border-radius: 100%;
@@ -104,11 +121,6 @@ body {
         border-radius: 0;
         border: none;
     }
-    .difficultyColor {
-        border-radius: 100%;
-        height: 30px;
-        width: 40px;
-    }
     .questionFooter {
         margin-top: 34px;
         padding-bottom: 20px;
@@ -117,5 +129,8 @@ body {
     }
     .cardHeader h5 {
         text-decoration: underline;
+    }
+    .quizimg {
+        object-fit: cover;
     }
 }
