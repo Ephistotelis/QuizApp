@@ -30,7 +30,7 @@ let questions = [{
         "anwser_2": "128",
         "anwser_3": "98",
         "anwser_4": "155",
-        "question": "Wie viele Champions gibt es zur Zeit? (Stand Main 2022)",
+        "question": "Wie viele Champions gibt es zur Zeit? (Stand Mai 2022)",
         "right_anwser": 1,
         "difficulty": "hard"
     },

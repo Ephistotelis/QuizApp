@@ -22,22 +22,31 @@ function checkCorrectAnwser(value) {
         let button = document.getElementById(`anwser${value}`)
         button.classList.add("easy")
         toggleButton("off")
-        setTimeout(function() {
-            currentQuestion++;
-            button.classList.remove("easy")
-            toggleButton("on")
-            quizRender();
-        }, 2000);
+        timeoutCorrect(value);
 
     } else {
         let button = document.getElementById(`anwser${value}`)
         button.classList.add("hard")
         toggleButton("off")
-        setTimeout(function() {
-            toggleButton("on")
-            endQuiz()
-        }, 2000)
+        timeoutFalse();
     }
+}
+
+function timeoutCorrect(value) {
+    let button = document.getElementById(`anwser${value}`)
+    setTimeout(function() {
+        currentQuestion++;
+        button.classList.remove("easy")
+        toggleButton("on")
+        quizRender();
+    }, 2000);
+}
+
+function timeoutFalse() {
+    setTimeout(function() {
+        toggleButton("on")
+        endQuiz()
+    }, 2000)
 }
 
 function showDifficulty() {
@@ -58,37 +67,26 @@ function wonQuiz() {
 }
 
 // render Text and show current question
+
 function showQuestions() {
-    let questionText = document.getElementById('questionText');
-    let anwser1 = document.getElementById('anwser1');
-    let anwser2 = document.getElementById('anwser2');
-    let anwser3 = document.getElementById('anwser3');
-    let anwser4 = document.getElementById('anwser4');
-    anwser1.innerHTML = questions[currentQuestion]["anwser_1"];
-    anwser2.innerHTML = questions[currentQuestion]["anwser_2"];
-    anwser3.innerHTML = questions[currentQuestion]["anwser_3"];
-    anwser4.innerHTML = questions[currentQuestion]["anwser_4"];
-    questionText.innerHTML = questions[currentQuestion]["question"];
+    for (let i = 1; i < 5; i++) {
+        let question = document.getElementById(`anwser${i}`);
+        question.innerHTML = questions[currentQuestion][`anwser_${i}`]
+    }
 }
 
 function toggleButton(onoff) {
-    let anwser1 = document.getElementById('anwser1');
-    let anwser2 = document.getElementById('anwser2');
-    let anwser3 = document.getElementById('anwser3');
-    let anwser4 = document.getElementById('anwser4');
     if (onoff == "off") {
-        anwser1.setAttribute("disabled", "disabled");
-        anwser2.setAttribute("disabled", "disabled");
-        anwser3.setAttribute("disabled", "disabled");
-        anwser4.setAttribute("disabled", "disabled");
+        for (let i = 1; i < 5; i++) {
+            let anwser = document.getElementById(`anwser${i}`);
+            anwser.setAttribute("disabled", "disabled")
+        }
     } else {
-        anwser1.removeAttribute("disabled", "disabled");
-        anwser2.removeAttribute("disabled", "disabled");
-        anwser3.removeAttribute("disabled", "disabled");
-        anwser4.removeAttribute("disabled", "disabled");
+        for (let i = 1; i < 5; i++) {
+            let anwser = document.getElementById(`anwser${i}`);
+            anwser.removeAttribute("disabled", "disabled")
+        }
     }
-
-
 }
 
 function maxQuestions() {
@@ -106,7 +104,7 @@ function templateEndScreen() {
     <span>Leider <b class="loose">falsch!</b></span>
     <span>Du hast ${currentQuestion} von ${questions.length} Fragen richtig beantwortet!</span>
     <span><b class="win">@DeveloperAkademie Leute schreibt mir gerne euer Feedback auf Slack "Joshua Herrmann"</b></span>
-    <div class="endScreenButton" onclick="resetQuiz()">Erneut probieren</div>
+    <button type="button" class="btn btn-outline-danger endScreenButton" onclick="resetQuiz()">Erneut probieren</button>
 </div>
     `
 }
@@ -116,7 +114,7 @@ function tempalteWinScreen() {
     <div class="endScreen">
     <span><b class="win">Gewonnen! Alle Fragen richtig beantwortet! </b></span>
     <span><b class="win">@DeveloperAkademie Leute schreibt mir gerne euer Feedback auf Slack "Joshua Herrmann"</b></span>
-    <div class="endScreenButton" onclick="resetQuiz()">Erneut probieren</div>
+    <button type="button" class="btn btn-outline-success endScreenButton" onclick="resetQuiz()">Erneut probieren</button>
 </div>
     `
 }
@@ -133,19 +131,19 @@ function templateQuiz() {
                     <div class="difficultyColor easy" id="difficultyColor"></div>
                 </div>
                 <div class="anwserContainer" id="anwserContainer">
-                    <div class="card questionCard">
-                        <button class="card-body " id="anwser1" onclick="checkCorrectAnwser(1)"></button>
+                    <div class="card questionCard ">
+                        <button type="button" class="btn btn-outline-secondary" id="anwser1" onclick="checkCorrectAnwser(1)"></button>
                     </div>
                     <div class="card questionCard">
-                        <button class="card-body " id="anwser2" onclick="checkCorrectAnwser(2)"></button>
+                        <button type="button" class="btn btn-outline-secondary" id="anwser2" onclick="checkCorrectAnwser(2)"></button>
 
                     </div>
                     <div class="card questionCard">
-                        <button class="card-body " id="anwser3" onclick="checkCorrectAnwser(3)"></button>
+                        <button type="button" class="btn btn-outline-secondary" id="anwser3" onclick="checkCorrectAnwser(3)"></button>
 
                     </div>
                     <div class="card questionCard">
-                        <button class="card-body " id="anwser4" onclick="checkCorrectAnwser(4)"></button>
+                        <button type="button" class="btn btn-outline-secondary" id="anwser4" onclick="checkCorrectAnwser(4)"></button>
 
                     </div>
                 </div>

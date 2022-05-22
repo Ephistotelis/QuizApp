@@ -69,9 +69,7 @@ footer {
 }
 
 .endScreenButton {
-    background-color: aqua;
-    padding: 5px;
-    border-radius: 5px;
+    margin-top: 10px;
 }
 
 .win {
@@ -97,22 +95,22 @@ footer {
 }
 
 .easy {
-    background-color: var(--easy);
+    background-color: var(--easy) !important;
 }
 
 .medium {
-    background-color: var(--medium);
+    background-color: var(--medium) !important;
 }
 
 .hard {
-    background-color: var(--hard);
+    background-color: var(--hard) !important;
 }
 
 .extrem {
-    background-color: var(--extrem);
+    background-color: var(--extrem) !important;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 900px) {
     .header {
         border: none;
         background-color: var(--bgheader);
@@ -126,6 +124,7 @@ footer {
         padding-bottom: 20px;
         font-size: 60px;
         text-align: center;
+        justify-content: center;
     }
     .cardHeader h5 {
         text-decoration: underline;
