@@ -69,6 +69,8 @@ function wonQuiz() {
 // render Text and show current question
 
 function showQuestions() {
+    let questionText = document.getElementById('questionText');
+    questionText.innerHTML = questions[currentQuestion]["question"];
     for (let i = 1; i < 5; i++) {
         let question = document.getElementById(`anwser${i}`);
         question.innerHTML = questions[currentQuestion][`anwser_${i}`]
